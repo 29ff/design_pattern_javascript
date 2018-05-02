@@ -17,9 +17,58 @@ Trong kĩ thuật phần mềm, có rất nhiều các mẫu **Design pattern** 
 ## Creational Patterns
 ### Module
 
-Được sử dụng rất thường xuyên trong quá trình phát triển phần mềm, module pattern có thể được xem như là một **IIFE** (Function thực thi ngay)
+Được sử dụng rất thường xuyên trong quá trình phát triển phần mềm, module pattern có thể được xem như là một **IIFE** (function thực thi ngay)
 ```javascript
 (function() {
   // code goes here!
 })();
 ```
+
+Tất cả các **module** tồn tại bên trong [closure](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures). Các giá trị được import vào bằng việc truyền các giá trị thông qua function và export ra bằng cách return một object. Việc sử dụng các **module** rất hữu ích khi code hệ thống vượt qua một function Javascript khi chúng giúp giữ cho global scope sạch sẽ và cũng như giữ cho các hàm của bạn có thể import và export được
+
+Bên dưới là ví dụ của việc một **module** được thực thi:
+
+```javascript
+const options = {
+  username: 'abcd',
+  server: '127.0.0.1'
+};
+
+const ConfigObject = (function(params) {
+
+  // return the publicly available things
+  // able to use login function at the top of this module since it is hoisted
+  return {
+    login: login
+  };
+
+  const username = params.username || '',
+        server = params.server || '',
+        password = params.password || '';
+
+  function checkPassword() {
+    if (this.password === '') {
+      console.log('no password!');
+      return false;
+    }
+    return true;
+  }
+
+  function checkUsername() {
+    if (this.username === '') {
+      console.log('no username!');
+      return false;
+    }
+    return true;
+  }
+
+  function login() {
+    if (checkPassword() && checkUsername()) {
+      // perform login
+    }
+  }
+})(options);
+
+```
+
+Chú ý rằng những giá trị của **username** và **server** cũng như **password** được import và export liên tục. Sử dụng cách **module** sẽ đảm bảo cho cấu trúc dự án sạch sẽ và làm cho code dễ đọc và ít lỗi hơn
