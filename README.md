@@ -1,5 +1,5 @@
 # Design Pattern Javascript
-<h1>React Design Pattern with Javascript</h1>
+<h1>Design Pattern with Javascript</h1>
 <p>Một trong những khía cạnh quan trọng nhất của việc viết code dễ dàng maintain là việc phát hiện ra những doạn code lặp lại và có thể tối ưu hóa chúng, đây là trường hợp mà design pattern chứng minh chúng vô giá - Addy Osmani</p>
 <p>Kể cả việc chúng ta có thể giải quyết được vấn đề khi viết Javascript, nhưng nó cũng có thể dẫn tới một số lỗi nếu chúng ta sử dụng sai design pattern hoặc áp dụng không đúng cách</p>
 <p>Lập trình viên có xu hướng sử dụng những framework mới nhất và những thư viện được xây dựng cho web app và kết hợp những thư viện đó vào trong một project, mà thường quên đi các ý tưởng cốt lõi đằng sau việc tạo ra các thư viện này</p>
@@ -20,7 +20,7 @@
 <h3>Module</h3>
 
 <p>Được sử dụng rất thường xuyên trong quá trình phát triển phần mềm, module pattern có thể được xem như là một IIFE (Function thực thi ngay)</p>
-```js
+```javascript
 (function() {
   // code goes here!
 })();
